@@ -145,6 +145,7 @@ section > .section-sub,
 .services > .grid,
 .comparison-grid,
 .industry-grid,
+.video-grid,
 .trust-grid,
 .about > p,
 .why-grid {
@@ -359,6 +360,7 @@ p {
 .grid,
 .comparison-grid,
 .industry-grid,
+.video-grid,
 .trust-grid {
     display: grid;
     gap: 18px;
@@ -516,6 +518,46 @@ p {
 
 .industry-item:hover::before {
     background: linear-gradient(90deg, var(--ice), var(--signal));
+}
+
+/* VIDEOS */
+.videos {
+    background: var(--panel);
+    text-align: center;
+}
+
+.video-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.video-card {
+    overflow: hidden;
+    border: 1px solid rgba(98, 215, 232, 0.18);
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(20, 36, 45, 0.92), rgba(9, 18, 23, 0.92));
+    text-align: left;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.2);
+}
+
+.video-card video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #05090c;
+    object-fit: cover;
+}
+
+.video-copy {
+    padding: 24px;
+}
+
+.video-copy h3 {
+    margin-top: 18px;
+    margin-bottom: 12px;
+}
+
+.video-copy p {
+    margin-bottom: 0;
 }
 
 /* TRUST */
@@ -787,6 +829,10 @@ p {
     }
 
     .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-grid {
         grid-template-columns: 1fr;
     }
 
