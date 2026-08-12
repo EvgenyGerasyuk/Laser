@@ -13,6 +13,10 @@ lerna-debug.log*
 # Source video originals
 *.MOV
 
+# Source logo/card artwork
+vanguardblasting.ca/assets/vanguardFront.png
+vanguardblasting.ca/assets/vanguard-logo.png
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
