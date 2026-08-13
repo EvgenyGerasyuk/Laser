@@ -17,6 +17,9 @@ lerna-debug.log*
 vanguardblasting.ca/assets/vanguardFront.png
 vanguardblasting.ca/assets/vanguard-logo.png
 
+# Source before/after photos
+vanguardblasting.ca/assets/short_wall_*_concrete_*.JPG
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 

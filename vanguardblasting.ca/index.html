@@ -23,6 +23,7 @@
         <a href="#">Home</a>
         <a href="#services">Services</a>
         <a href="#methods">Methods</a>
+        <a href="#before-after">Results</a>
         <a href="#videos">Videos</a>
         <a href="#about">About</a>
         <a class="nav-quote" href="mailto:info@vanguardblasting.ca">Quote</a>
@@ -166,6 +167,53 @@
     </div>
 </section>
 
+<!-- BEFORE & AFTER -->
+<section id="before-after" class="before-after">
+    <p class="section-label">Results</p>
+    <h2>Before & After Results</h2>
+    <p class="section-sub">
+        Concrete surface cleaning results from recent work.
+    </p>
+
+    <div class="before-after-grid">
+        <article class="before-after-card">
+            <h3>Concrete Surface Cleaning</h3>
+            <div class="comparison-pair">
+                <figure>
+                    <button class="before-after-trigger" type="button" data-before="assets/before-after/concrete-left-before.jpg" data-after="assets/before-after/concrete-left-after.jpg" data-caption="Concrete Surface Cleaning">
+                        <img src="assets/before-after/concrete-left-before.jpg" alt="Concrete wall before cleaning">
+                    </button>
+                    <figcaption>Before</figcaption>
+                </figure>
+                <figure>
+                    <button class="before-after-trigger" type="button" data-before="assets/before-after/concrete-left-before.jpg" data-after="assets/before-after/concrete-left-after.jpg" data-caption="Concrete Surface Cleaning">
+                        <img src="assets/before-after/concrete-left-after.jpg" alt="Concrete wall after cleaning">
+                    </button>
+                    <figcaption>After</figcaption>
+                </figure>
+            </div>
+        </article>
+
+        <article class="before-after-card">
+            <h3>Concrete Surface Cleaning</h3>
+            <div class="comparison-pair">
+                <figure>
+                    <button class="before-after-trigger" type="button" data-before="assets/before-after/concrete-right-before.jpg" data-after="assets/before-after/concrete-right-after.jpg" data-caption="Concrete Surface Cleaning">
+                        <img src="assets/before-after/concrete-right-before.jpg" alt="Concrete wall before cleaning">
+                    </button>
+                    <figcaption>Before</figcaption>
+                </figure>
+                <figure>
+                    <button class="before-after-trigger" type="button" data-before="assets/before-after/concrete-right-before.jpg" data-after="assets/before-after/concrete-right-after.jpg" data-caption="Concrete Surface Cleaning">
+                        <img src="assets/before-after/concrete-right-after.jpg" alt="Concrete wall after cleaning">
+                    </button>
+                    <figcaption>After</figcaption>
+                </figure>
+            </div>
+        </article>
+    </div>
+</section>
+
 <!-- VIDEOS -->
 <section id="videos" class="videos">
     <p class="section-label">In Action</p>
@@ -176,13 +224,24 @@
 
     <div class="video-grid">
         <article class="video-card">
-            <video controls preload="metadata">
+            <video controls preload="metadata" poster="assets/videos/concrete-surface-cleaning-poster.png">
                 <source src="assets/videos/concrete-surface-cleaning.mp4" type="video/mp4">
             </video>
             <div class="video-copy">
                 <span class="card-kicker">Concrete</span>
                 <h3>Concrete Surface Cleaning</h3>
                 <p>Removing surface deposits and buildup from concrete without unnecessary chemical runoff.</p>
+            </div>
+        </article>
+
+        <article class="video-card">
+            <video controls preload="metadata" poster="assets/videos/short-wall-concrete-cleaning-poster.png">
+                <source src="assets/videos/short-wall-concrete-cleaning.mp4" type="video/mp4">
+            </video>
+            <div class="video-copy">
+                <span class="card-kicker">Concrete</span>
+                <h3>Concrete Surface Cleaning</h3>
+                <p>Concrete cleaning in progress on a short wall surface.</p>
             </div>
         </article>
     </div>
@@ -283,6 +342,23 @@
 
 </main>
 
+<div class="image-modal" id="image-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="image-modal-close" type="button" aria-label="Close image preview">X</button>
+    <figure>
+        <div class="image-modal-pair">
+            <div>
+                <img data-modal-before src="" alt="">
+                <span>Before</span>
+            </div>
+            <div>
+                <img data-modal-after src="" alt="">
+                <span>After</span>
+            </div>
+        </div>
+        <figcaption></figcaption>
+    </figure>
+</div>
+
 <!-- FOOTER -->
 <footer id="contact" class="footer">
     <div>
@@ -316,6 +392,58 @@
         <p>Mention timeline if urgent</p>
     </div>
 </footer>
+
+<script>
+    const modal = document.getElementById("image-modal");
+    const modalBeforeImage = modal.querySelector("[data-modal-before]");
+    const modalAfterImage = modal.querySelector("[data-modal-after]");
+    const modalCaption = modal.querySelector("figcaption");
+    const modalClose = modal.querySelector(".image-modal-close");
+    let activeTrigger = null;
+
+    function openImageModal(trigger) {
+        activeTrigger = trigger;
+        modalBeforeImage.src = trigger.dataset.before;
+        modalBeforeImage.alt = "Concrete wall before cleaning";
+        modalAfterImage.src = trigger.dataset.after;
+        modalAfterImage.alt = "Concrete wall after cleaning";
+        modalCaption.textContent = trigger.dataset.caption;
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+        modalClose.focus();
+    }
+
+    function closeImageModal() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+        modalBeforeImage.src = "";
+        modalAfterImage.src = "";
+
+        if (activeTrigger) {
+            activeTrigger.focus();
+        }
+    }
+
+    document.querySelectorAll(".before-after-trigger").forEach((trigger) => {
+        trigger.addEventListener("click", () => openImageModal(trigger));
+    });
+
+    modalClose.addEventListener("click", closeImageModal);
+
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            closeImageModal();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.classList.contains("is-open")) {
+            closeImageModal();
+        }
+    });
+</script>
 
 </body>
 </html>
