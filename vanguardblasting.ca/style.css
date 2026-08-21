@@ -165,6 +165,9 @@ section > .section-sub,
 .before-after-grid,
 .video-grid,
 .trust-grid,
+.contact-grid,
+.service-feature-grid,
+.faq-grid,
 .about > p,
 .why-grid {
     max-width: 1180px;
@@ -368,6 +371,164 @@ p {
     border-radius: 50%;
     background: var(--ice);
     box-shadow: 0 0 14px rgba(98, 215, 232, 0.8);
+}
+
+/* CONTACT PAGE */
+.contact-hero {
+    min-height: 620px;
+    display: grid;
+    align-items: end;
+    padding-top: 150px;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(5, 9, 12, 0.96) 0%, rgba(5, 9, 12, 0.82) 45%, rgba(5, 9, 12, 0.28) 100%),
+        linear-gradient(0deg, var(--ink) 0%, transparent 34%),
+        url("/assets/hero-surface-cleaning.png") center right / cover no-repeat;
+}
+
+.contact-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 920px;
+}
+
+.contact-page {
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(320px, 1.2fr);
+    gap: 18px;
+    margin-top: 42px;
+    text-align: left;
+}
+
+.contact-panel {
+    padding: 30px;
+    border: 1px solid rgba(98, 215, 232, 0.16);
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(20, 36, 45, 0.92), rgba(9, 18, 23, 0.92));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.contact-panel h3 {
+    margin-bottom: 18px;
+}
+
+.contact-panel p {
+    margin: 10px 0;
+}
+
+.contact-panel ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contact-panel li {
+    position: relative;
+    margin-bottom: 14px;
+    padding-left: 24px;
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.contact-panel li:last-child {
+    margin-bottom: 0;
+}
+
+.contact-panel li::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ice);
+    box-shadow: 0 0 14px rgba(98, 215, 232, 0.7);
+}
+
+.service-hero {
+    min-height: 660px;
+    display: grid;
+    align-items: end;
+    padding-top: 150px;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(5, 9, 12, 0.96) 0%, rgba(5, 9, 12, 0.82) 45%, rgba(5, 9, 12, 0.3) 100%),
+        linear-gradient(0deg, var(--ink) 0%, transparent 34%),
+        url("/assets/hero-surface-cleaning.png") center right / cover no-repeat;
+}
+
+.service-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 940px;
+}
+
+.service-detail,
+.service-applications,
+.faq-section {
+    text-align: center;
+}
+
+.service-feature-grid,
+.faq-grid {
+    display: grid;
+    gap: 18px;
+    margin-top: 42px;
+}
+
+.service-feature-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.service-feature,
+.faq-item {
+    padding: 28px;
+    border: 1px solid rgba(98, 215, 232, 0.16);
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(20, 36, 45, 0.92), rgba(9, 18, 23, 0.92));
+    text-align: left;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.service-feature h3,
+.faq-item h3 {
+    margin-bottom: 12px;
+}
+
+.service-feature p,
+.faq-item p {
+    margin-bottom: 0;
+}
+
+.faq-section {
+    background: var(--panel);
+}
+
+.faq-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.service-actions {
+    justify-content: center;
+    margin-top: 36px;
+}
+
+.text-link {
+    display: inline-flex;
+    margin-top: 20px;
+    color: var(--ice);
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.text-link:hover {
+    color: var(--clean);
 }
 
 /* SERVICES */
@@ -1076,6 +1237,14 @@ p {
     }
 
     .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-grid {
         grid-template-columns: 1fr;
     }
 
