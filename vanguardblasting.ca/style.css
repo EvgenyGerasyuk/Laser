@@ -166,6 +166,7 @@ section > .section-sub,
 .video-grid,
 .trust-grid,
 .contact-grid,
+.quote-form-layout,
 .service-feature-grid,
 .faq-grid,
 .about > p,
@@ -448,6 +449,108 @@ p {
     border-radius: 50%;
     background: var(--ice);
     box-shadow: 0 0 14px rgba(98, 215, 232, 0.7);
+}
+
+.quote-form-section {
+    background:
+        linear-gradient(90deg, rgba(98, 215, 232, 0.06), transparent 46%),
+        var(--ink);
+}
+
+.quote-form-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+    gap: 18px;
+    align-items: start;
+    margin-top: 42px;
+    text-align: left;
+}
+
+.lead-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding: 30px;
+    border: 1px solid rgba(98, 215, 232, 0.18);
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(20, 36, 45, 0.94), rgba(9, 18, 23, 0.94));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 28px 70px rgba(0, 0, 0, 0.18);
+}
+
+.lead-form label {
+    display: grid;
+    gap: 8px;
+}
+
+.lead-form span {
+    color: #cfe0e5;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.lead-form input,
+.lead-form textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 13px 14px;
+    border: 1px solid rgba(98, 215, 232, 0.2);
+    border-radius: 6px;
+    color: var(--text);
+    background: rgba(5, 9, 12, 0.66);
+    font: inherit;
+}
+
+.lead-form textarea {
+    resize: vertical;
+}
+
+.lead-form input:focus,
+.lead-form textarea:focus {
+    outline: 2px solid rgba(98, 215, 232, 0.52);
+    outline-offset: 2px;
+}
+
+.lead-form-wide,
+.lead-form-submit {
+    grid-column: 1 / -1;
+}
+
+.lead-form-submit {
+    width: 100%;
+    cursor: pointer;
+}
+
+.form-honey {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.quote-help {
+    min-height: 100%;
+}
+
+.quote-contact {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(98, 215, 232, 0.14);
+}
+
+.quote-contact p {
+    margin: 8px 0;
+}
+
+.thank-you-page {
+    min-height: 680px;
+    display: grid;
+    align-content: center;
+    padding-top: 150px;
+    background:
+        linear-gradient(90deg, rgba(5, 9, 12, 0.96) 0%, rgba(5, 9, 12, 0.8) 48%, rgba(5, 9, 12, 0.24) 100%),
+        url("/assets/hero-surface-cleaning.png") center right / cover no-repeat;
 }
 
 .service-hero {
@@ -1241,6 +1344,11 @@ p {
     }
 
     .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quote-form-layout,
+    .lead-form {
         grid-template-columns: 1fr;
     }
 

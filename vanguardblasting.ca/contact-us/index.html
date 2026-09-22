@@ -76,7 +76,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="/#services">Services</a>
         <a href="/#before-after">Results</a>
         <a href="/contact-us/">Contact</a>
-        <a class="nav-quote" href="mailto:info@vanguardblasting.ca">Quote</a>
+        <a class="nav-quote" href="/contact-us/#quote-form">Quote</a>
     </nav>
 </header>
 
@@ -91,23 +91,81 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             Send photos of the surface, the project location, and what needs to be removed. We will review the job and recommend dry ice blasting, laser cleaning, or a combined approach.
         </p>
         <div class="hero-actions">
-            <a href="mailto:info@vanguardblasting.ca" class="btn">Email for a Quote</a>
+            <a href="#quote-form" class="btn">Request a Free Quote</a>
             <a href="tel:+17788298590" class="btn btn-secondary">Call 778-829-8590</a>
         </div>
     </div>
 </section>
 
-<!-- CONTACT DETAILS -->
-<section class="contact-page">
+<!-- QUOTE FORM -->
+<section id="quote-form" class="contact-page quote-form-section">
     <p class="section-label">Get a Quote</p>
-    <h2>What to Send</h2>
+    <h2>Request a Free Quote</h2>
     <p class="section-sub">
-        A few details usually make it easier to estimate the right method, timeline, and site requirements.
+        Tell us what needs cleaning and where the project is located. Your request will be sent to info@vanguardblasting.ca.
     </p>
+
+    <div class="quote-form-layout">
+        <form class="lead-form" action="https://formsubmit.co/info@vanguardblasting.ca" method="POST">
+            <input type="hidden" name="_subject" value="New Vanguard Blasting quote request">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://vanguardblasting.ca/thank-you/">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off">
+
+            <label>
+                <span>Full name*</span>
+                <input type="text" name="Full name" autocomplete="name" required>
+            </label>
+
+            <label>
+                <span>Phone*</span>
+                <input type="tel" name="Phone" autocomplete="tel" required>
+            </label>
+
+            <label>
+                <span>Email*</span>
+                <input type="email" name="Email" autocomplete="email" required>
+            </label>
+
+            <label>
+                <span>Project location / city*</span>
+                <input type="text" name="Project location" autocomplete="address-level2" required>
+            </label>
+
+            <label class="lead-form-wide">
+                <span>Message</span>
+                <textarea name="Message" rows="5" placeholder="Tell us what needs cleaning, the surface type, and your preferred timeline."></textarea>
+            </label>
+
+            <button class="btn lead-form-submit" type="submit">Submit Quote Request</button>
+        </form>
+
+        <article class="contact-panel quote-help">
+            <h3>What Helps Us Quote Faster</h3>
+            <ul>
+                <li>Photos or video of the surface.</li>
+                <li>Project city and access details.</li>
+                <li>Material type: concrete, metal, equipment, vehicle, marine part, or machinery.</li>
+                <li>What needs removal: moss, residue, grease, soot, rust, paint, coating, or buildup.</li>
+                <li>Preferred timeline or shutdown window.</li>
+            </ul>
+            <div class="quote-contact">
+                <p>Email: <a href="mailto:info@vanguardblasting.ca">info@vanguardblasting.ca</a></p>
+                <p>Phone: <a href="tel:+17788298590">778-829-8590</a></p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- CONTACT DETAILS -->
+<section class="contact-page contact-summary">
+    <p class="section-label">Contact</p>
+    <h2>Other Ways to Reach Us</h2>
 
     <div class="contact-grid">
         <article class="contact-panel">
-            <h3>Contact</h3>
+            <h3>Direct Contact</h3>
             <p>Email: <a href="mailto:info@vanguardblasting.ca">info@vanguardblasting.ca</a></p>
             <p>Phone: <a href="tel:+17788298590">778-829-8590</a></p>
             <p>Website: <a href="https://vanguardblasting.ca">vanguardblasting.ca</a></p>
@@ -164,7 +222,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div>
         <h3>Vanguard Blasting Solutions Ltd</h3>
         <p>Mobile laser cleaning and dry ice blasting for industrial, automotive, marine, and metal surface projects.</p>
-        <a href="mailto:info@vanguardblasting.ca" class="btn">Get a Free Quote</a>
+        <a href="/contact-us/#quote-form" class="btn">Get a Free Quote</a>
     </div>
 
     <div>
