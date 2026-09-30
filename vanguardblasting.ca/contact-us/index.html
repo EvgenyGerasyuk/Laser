@@ -258,6 +258,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const formStatus = document.querySelector("[data-form-status]");
 
     if (leadForm && formStatus) {
+        function getFormValue(formData, key) {
+            return (formData.get(key) || "").toString().trim();
+        }
+
+        function openEmailFallback(formData) {
+            const subject = "Vanguard Blasting quote request";
+            const body = [
+                "New quote request:",
+                "",
+                `Full name: ${getFormValue(formData, "name")}`,
+                `Phone: ${getFormValue(formData, "phone")}`,
+                `Email: ${getFormValue(formData, "email")}`,
+                `Project location: ${getFormValue(formData, "project_location")}`,
+                "",
+                "Message:",
+                getFormValue(formData, "message") || "No message provided."
+            ].join("\n");
+
+            window.location.href = `mailto:info@vanguardblasting.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
         leadForm.addEventListener("submit", async (event) => {
             event.preventDefault();
 
@@ -283,9 +304,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 window.location.href = "/thank-you/";
             } catch (error) {
-                formStatus.textContent = "The form service is having trouble. Please call 778-829-8590 or email info@vanguardblasting.ca.";
+                formStatus.textContent = "The form service is having trouble, so we are opening your email app with the quote details filled in.";
                 formStatus.classList.add("is-error");
                 submitButton.disabled = false;
+                openEmailFallback(formData);
             }
         });
     }
