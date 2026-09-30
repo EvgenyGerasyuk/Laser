@@ -106,7 +106,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
 
     <div class="quote-form-layout">
-        <form class="lead-form" action="https://formsubmit.co/info@vanguardblasting.ca" method="POST">
+        <form class="lead-form" action="https://formsubmit.co/info@vanguardblasting.ca" method="POST" data-lead-form>
             <input type="hidden" name="_subject" value="New Vanguard Blasting quote request">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_next" value="https://vanguardblasting.ca/thank-you/">
@@ -115,30 +115,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <label>
                 <span>Full name*</span>
-                <input type="text" name="Full name" autocomplete="name" required>
+                <input type="text" name="name" autocomplete="name" required>
             </label>
 
             <label>
                 <span>Phone*</span>
-                <input type="tel" name="Phone" autocomplete="tel" required>
+                <input type="tel" name="phone" autocomplete="tel" required>
             </label>
 
             <label>
                 <span>Email*</span>
-                <input type="email" name="Email" autocomplete="email" required>
+                <input type="email" name="email" autocomplete="email" required>
             </label>
 
             <label>
                 <span>Project location / city*</span>
-                <input type="text" name="Project location" autocomplete="address-level2" required>
+                <input type="text" name="project_location" autocomplete="address-level2" required>
             </label>
 
             <label class="lead-form-wide">
                 <span>Message</span>
-                <textarea name="Message" rows="5" placeholder="Tell us what needs cleaning, the surface type, and your preferred timeline."></textarea>
+                <textarea name="message" rows="5" placeholder="Tell us what needs cleaning, the surface type, and your preferred timeline."></textarea>
             </label>
 
             <button class="btn lead-form-submit" type="submit">Submit Quote Request</button>
+            <p class="form-status" data-form-status aria-live="polite"></p>
         </form>
 
         <article class="contact-panel quote-help">
@@ -251,6 +252,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Mention timeline if urgent</p>
     </div>
 </footer>
+
+<script>
+    const leadForm = document.querySelector("[data-lead-form]");
+    const formStatus = document.querySelector("[data-form-status]");
+
+    if (leadForm && formStatus) {
+        leadForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const submitButton = leadForm.querySelector("button[type='submit']");
+            const formData = new FormData(leadForm);
+
+            formStatus.textContent = "Sending your quote request...";
+            formStatus.classList.remove("is-error");
+            submitButton.disabled = true;
+
+            try {
+                const response = await fetch(leadForm.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error("Form service error");
+                }
+
+                window.location.href = "/thank-you/";
+            } catch (error) {
+                formStatus.textContent = "The form service is having trouble. Please call 778-829-8590 or email info@vanguardblasting.ca.";
+                formStatus.classList.add("is-error");
+                submitButton.disabled = false;
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
