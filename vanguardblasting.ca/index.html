@@ -286,7 +286,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-label">Results</p>
     <h2>Before & After Results</h2>
     <p class="section-sub">
-        Concrete surface cleaning results from recent work.
+        Surface cleaning results from recent work.
     </p>
 
     <div class="before-after-grid">
@@ -320,6 +320,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <figure>
                     <button class="before-after-trigger" type="button" data-before="assets/before-after/concrete-right-before.jpg" data-after="assets/before-after/concrete-right-after.jpg" data-caption="Concrete Surface Cleaning">
                         <img src="assets/before-after/concrete-right-after.jpg" alt="Concrete wall after cleaning">
+                    </button>
+                    <figcaption>After</figcaption>
+                </figure>
+            </div>
+        </article>
+
+        <article class="before-after-card">
+            <h3>Engine Component Cleaning</h3>
+            <div class="comparison-pair">
+                <figure>
+                    <button class="before-after-trigger" type="button" data-before="assets/before-after/laser_1before.jpg" data-after="assets/before-after/laser_1after.jpg" data-caption="Engine Component Cleaning" data-before-alt="Engine component before laser cleaning" data-after-alt="Engine component after laser cleaning">
+                        <img src="assets/before-after/laser_1before.jpg" alt="Engine component before laser cleaning">
+                    </button>
+                    <figcaption>Before</figcaption>
+                </figure>
+                <figure>
+                    <button class="before-after-trigger" type="button" data-before="assets/before-after/laser_1before.jpg" data-after="assets/before-after/laser_1after.jpg" data-caption="Engine Component Cleaning" data-before-alt="Engine component before laser cleaning" data-after-alt="Engine component after laser cleaning">
+                        <img src="assets/before-after/laser_1after.jpg" alt="Engine component after laser cleaning">
                     </button>
                     <figcaption>After</figcaption>
                 </figure>
@@ -519,9 +537,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     function openImageModal(trigger) {
         activeTrigger = trigger;
         modalBeforeImage.src = trigger.dataset.before;
-        modalBeforeImage.alt = "Concrete wall before cleaning";
+        modalBeforeImage.alt = trigger.dataset.beforeAlt || `${trigger.dataset.caption} before cleaning`;
         modalAfterImage.src = trigger.dataset.after;
-        modalAfterImage.alt = "Concrete wall after cleaning";
+        modalAfterImage.alt = trigger.dataset.afterAlt || `${trigger.dataset.caption} after cleaning`;
         modalCaption.textContent = trigger.dataset.caption;
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden", "false");

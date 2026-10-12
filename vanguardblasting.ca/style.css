@@ -889,7 +889,7 @@ p {
 }
 
 .before-after-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
 }
 
 .before-after-card {
